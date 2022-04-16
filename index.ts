@@ -1,3 +1,14 @@
-import ELo from './src/test'
+import 'dotenv/config'
+import { API } from './src/services/CoinMarketCap'
 
-ELo()
+const api = new API()
+
+const test = () => {
+  const tt = async () => {
+    console.log(await api.testCall())
+  }
+
+  tt()
+}
+
+test()
