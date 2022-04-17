@@ -10,9 +10,9 @@ appConfig:
 */
 
 export enum IntervalValueType {
-  minutes,
-  hours,
-  days,
+  minutes = 'minutes',
+  hours = 'hours',
+  days = 'days',
 }
 
 const cryptoConfig = [
@@ -25,7 +25,7 @@ const cryptoConfig = [
 ]
 
 const appConfig = {
-  checkInterval: 1,
+  checkInterval: 30,
   intervalValueType: IntervalValueType.minutes,
 }
 
