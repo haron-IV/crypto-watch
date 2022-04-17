@@ -22,9 +22,9 @@ class Mailer {
       subject,
     }
 
-    this.transporter.sendMail(mail, (err, info) => {
+    this.transporter.sendMail(mail, (err) => {
       if (err) console.error(err.message)
-      else console.log(`Mail have been sent to: ${mail.to}`)
+      else console.log(`Mail has been sent to: ${mail.to}`)
     })
   }
 }

@@ -1,4 +1,6 @@
-import { IntervalValueType } from '../../config'
+import { IntervalValueType, config } from '../../config'
+
+const { appConfig } = config
 
 export const convertTime = (time: number, timeType: IntervalValueType) => {
   switch (timeType) {
@@ -14,4 +16,18 @@ export const convertTime = (time: number, timeType: IntervalValueType) => {
     default:
       return 3 * 60 * 60 * 1000
   }
+}
+
+export const createInterval = (task: () => void) => {
+  const intervalTime = appConfig.checkInterval
+  const intervalType = appConfig.intervalValueType
+  const interval = setInterval(task, convertTime(intervalTime, intervalType))
+
+  return interval
+}
+
+export const getDateTime = () => {
+  const d = new Date()
+
+  return `${d.toDateString()} | ${d.toTimeString().split(' ')[0]}`
 }

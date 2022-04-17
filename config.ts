@@ -1,3 +1,4 @@
+import { SupportedCryptocurrencies } from './src/app/types'
 /*
 cryptoConfig:
   active - if false alert will not be send
@@ -16,8 +17,8 @@ export enum IntervalValueType {
 
 const cryptoConfig = [
   {
-    cryptocurrencyName: 'bitcoin',
-    alertPrice: { under: 10000, over: 20000 },
+    cryptocurrencyName: SupportedCryptocurrencies.Bitcoin,
+    alertPrice: { under: 35000, over: 50000 },
     active: true,
     save: false,
   },
