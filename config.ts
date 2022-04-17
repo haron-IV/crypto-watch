@@ -2,9 +2,10 @@
 cryptoConfig:
   active - if false alert will not be send
   save - save alert info in file
+  alertPrice - Value in USD, number
 
 appConfig:
-  checkInterval - value (minutes, hours, days) number
+  checkInterval - value (minutes, hours, days)
 */
 
 export enum IntervalValueType {
@@ -27,10 +28,9 @@ const appConfig = {
   intervalValueType: IntervalValueType.minutes,
 }
 
-const config = {
+export const config = {
   appConfig,
   cryptoConfig,
 }
 
 export type Config = typeof config
-export default config
