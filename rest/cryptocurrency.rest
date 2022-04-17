@@ -1,0 +1,17 @@
+# Endpoints that return data around cryptocurrencies such as ordered 
+# cryptocurrency lists or price and volume data.
+#https://coinmarketcap.com/api/documentation/v1/#tag/cryptocurrency
+
+
+@URL = {{apiUrl}}
+
+#https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyListingsLatest
+GET {{URL}}/cryptocurrency/listings/latest
+Content-Type: application/json
+X-CMC_PRO_API_KEY: {{token}}
+
+###
+
+GET {{URL}}/cryptocurrency/quotes/latest?slug=bitcoin
+Content-Type: application/json
+X-CMC_PRO_API_KEY: {{token}}

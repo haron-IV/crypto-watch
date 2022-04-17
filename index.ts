@@ -1,14 +1,15 @@
 import 'dotenv/config'
-import { API } from './src/services/CoinMarketCap'
+import { CoinMarketCap } from './src/services'
 
-const api = new API()
+const cryptocurrency = new CoinMarketCap.Cryptocurrency()
 
-const test = () => {
+const app = () => {
   const tt = async () => {
-    console.log(await api.testCall())
+    const info = await await cryptocurrency.getCryptoCurrencyPrice('bitcoin')
+    console.log(info)
   }
 
   tt()
 }
 
-test()
+app()
