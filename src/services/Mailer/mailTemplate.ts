@@ -1,9 +1,11 @@
-import { SupportedCryptocurrencies } from '../../app/types'
+import { SupportedCryptocurrencies } from 'app'
 
-const priceIsOver = (
+type TemplateFn = (
   cryptocurrencyName: SupportedCryptocurrencies,
   priceException: number
-) => ({
+) => { subject: string; html: string }
+
+const priceIsOver: TemplateFn = (cryptocurrencyName, priceException) => ({
   subject: `Price of ${cryptocurrencyName.toUpperCase()} is over ${priceException} USD!`,
   html: `
     <article>
@@ -14,10 +16,7 @@ const priceIsOver = (
   `,
 })
 
-const priceIsUnder = (
-  cryptocurrencyName: SupportedCryptocurrencies,
-  priceException: number
-) => ({
+const priceIsUnder: TemplateFn = (cryptocurrencyName, priceException) => ({
   subject: `Price of ${cryptocurrencyName.toUpperCase()} is under ${priceException} USD!`,
   html: `
     <article>

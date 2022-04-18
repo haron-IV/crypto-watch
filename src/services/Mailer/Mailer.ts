@@ -1,18 +1,19 @@
-import * as nodemailer from 'nodemailer'
+import { createTransport, SentMessageInfo, Transporter } from 'nodemailer'
 import { Options } from 'nodemailer/lib/mailer'
 
 const user = process.env.MAILER_USER || ''
 const pass = process.env.MAILER_PASSWORD || ''
 const mailTarget = process.env.MAILER_TARGET || ''
 
+type TransporterObj = Transporter<SentMessageInfo>
 class Mailer {
-  private transporter = nodemailer.createTransport({
+  private transporter: TransporterObj = createTransport({
     service: 'Gmail',
     auth: {
       user,
       pass,
     },
-  } as nodemailer.TransportOptions)
+  })
 
   sendMail = (text: string, subject: string) => {
     const mail: Options = {

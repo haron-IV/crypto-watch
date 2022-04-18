@@ -41,5 +41,6 @@ module.exports = {
     'comma-dangle': 0,
     'implicit-arrow-linebreak': 0,
     'no-shadow': 0,
+    'import/no-unresolved': 0,
   },
 }

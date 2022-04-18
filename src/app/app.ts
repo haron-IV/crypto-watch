@@ -1,7 +1,7 @@
-import { CoinMarketCap, Mailer } from '../services'
+import { CoinMarketCap, Mailer } from 'services'
+import { priceIsOver, priceIsUnder } from 'services/Mailer'
 import { config } from '../../config'
 import { createInterval, getDateTime } from './utils'
-import { priceIsOver, priceIsUnder } from '../services/Mailer/mailTemplate'
 
 const { cryptoConfig, appConfig } = config
 const crypto = new CoinMarketCap.Cryptocurrency()
