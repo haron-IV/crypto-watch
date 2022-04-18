@@ -5,11 +5,7 @@ class Cryptocurrency extends API {
   private getCryptoCurrencyInfo = async (coinName: string) => {
     const { data } = await this.api.get<GetCryptoCurrencyInfoResponse>(
       '/cryptocurrency/quotes/latest',
-      {
-        params: {
-          slug: coinName,
-        },
-      }
+      { params: { slug: coinName } }
     )
 
     return data
