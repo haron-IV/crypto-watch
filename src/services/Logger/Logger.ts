@@ -59,11 +59,11 @@ class Logger {
 
   error = (err: string | Error | object) => this.logger.error(err)
 
-  warn: Log = (msg, rest, separator) =>
-    this.log(msg, rest, LogType.Warn, separator)
+  warn: Log = (msg, data, separator) =>
+    this.log(msg, data, LogType.Warn, separator)
 
-  info: Log = (msg, rest, separator) =>
-    this.log(msg, rest, LogType.Info, separator)
+  info: Log = (msg, data, separator) =>
+    this.log(msg, data, LogType.Info, separator)
 }
 
 export default Logger
