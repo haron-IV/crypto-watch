@@ -42,5 +42,7 @@ module.exports = {
     'implicit-arrow-linebreak': 0,
     'no-shadow': 0,
     'import/no-unresolved': 0,
+    'nonblock-statement-body-position': 0,
+    curly: 0,
   },
 }

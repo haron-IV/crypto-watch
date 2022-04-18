@@ -6,8 +6,15 @@
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "strict": true,
+    "paths": {
+      "@services/*": ["services/*"],
+      "@services": ["services/index"],
+
+      "@shared/*": ["shared/*"],
+      "@shared": ["shared/index"],
+    }
   },
   "lib": ["es2016", "es2015", "es7"],
   "include": ["./src"],
