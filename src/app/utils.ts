@@ -21,12 +21,14 @@ export const convertTime = (time: number, timeType: IntervalValueType) => {
 export const createInterval = (task: () => void) => {
   const intervalTime = appConfig.checkInterval
   const intervalType = appConfig.intervalValueType
+  task()
   const interval = setInterval(task, convertTime(intervalTime, intervalType))
 
   return interval
 }
 
 export const getDateTime = () => {
+  // TODO: remove this cus it is not used
   const d = new Date()
 
   return `${d.toDateString()} | ${d.toTimeString().split(' ')[0]}`
