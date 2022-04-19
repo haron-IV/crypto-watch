@@ -1,4 +1,4 @@
-import { IntervalValueType, config } from '../../config'
+import { IntervalValueType, config } from '../config'
 
 const { appConfig } = config
 
