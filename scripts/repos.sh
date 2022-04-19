@@ -8,3 +8,7 @@ cd crypto-watch
 echo 'started installing packages...'
 yarn install
 echo 'packages installed successfully'
+cp ./src/config.template.ts ./src/config.ts
+echo 'config copied. Configure it yourself ./src/config.ts'
+cp .env.template .env
+echo '.env copied, configure it yourself.'
