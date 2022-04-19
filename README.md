@@ -13,3 +13,24 @@ Stack: node, typescript, nodemailer, dotenv, axios, ts-node
 
 readme:
 to use config u have to clone file `config.template.ts` change the name to `config.ts`. The file is in `/src` directory.
+
+scripts:
+
+`start` - start develop app
+
+#### debug:
+
+`start-vps-debug` - start vps version based on pm2
+`stop-vps-debug` - stop vps version based on pm2
+`delete-vps-debug` - delete vps app process based on pm2
+
+#### prod:
+
+`start-vps` - start vps prod version
+`stop-vps` - stop vps prod version
+`delete-vps` - delete vps app process
+
+#### other:
+
+`logs` - shows app logs
+`app-list` - shows list of started processes
