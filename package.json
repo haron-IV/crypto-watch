@@ -18,8 +18,8 @@
   },
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "start": "ts-node -r tsconfig-paths/register ./index.ts",
-    "start-vps-debug": "pm2 start ts-node -- -r tsconfig-paths/register ./index.ts",
+    "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
+    "start-vps-debug": "pm2 start ts-node -- -r tsconfig-paths/register ./src/index.ts",
     "stop-vps-debug": "pm2 stop ts-node",
     "delete-vps-debug": "pm2 delete ts-node",
     "start-vps": "pm2 start ecosystem.config.js",
