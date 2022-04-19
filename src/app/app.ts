@@ -6,7 +6,7 @@ import {
   priceIsUnder,
 } from '@services'
 import { INFOS } from '@shared/strings'
-import { config } from '../config'
+import { config } from 'config'
 import { SupportedCryptocurrencies } from './types'
 import { createInterval } from './utils'
 
