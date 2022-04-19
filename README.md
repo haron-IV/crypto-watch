@@ -34,3 +34,11 @@ scripts:
 
 `logs` - shows app logs
 `app-list` - shows list of started processes
+
+## VPS instance:
+
+You can start with raw Ubuntu 20.04 using scripts from `/scripts`
+You can firstly install git, yarn etc. manually then use scripts. Or just copy it and run in the `home` directory of the VPS.
+
+1. run install.sh
+2. run repos.sh
