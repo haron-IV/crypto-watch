@@ -16,6 +16,10 @@ sudo apt update
 sudo apt install --no-install-recommends yarn
 echo 'yarn installed successfully'
 
+echo 'installing global development packages...'
+yarn global add typescript
+yarn global add ts-node --save-dev
+
 echo 'installing NVM...'
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 source ~/.profile
