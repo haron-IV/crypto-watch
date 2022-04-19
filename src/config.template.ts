@@ -1,4 +1,4 @@
-import { SupportedCryptocurrencies } from './src/app/types'
+import { SupportedCryptocurrencies } from '@app'
 /*
 cryptoConfig:
   active - if false alert will not be send
