@@ -43,6 +43,7 @@ module.exports = {
     'no-shadow': 0,
     'import/no-unresolved': 0,
     'nonblock-statement-body-position': 0,
+    'lines-between-class-members': 0,
     curly: 0,
   },
 }

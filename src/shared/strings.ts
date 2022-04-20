@@ -5,4 +5,5 @@ export const INFOS = {
   emailHasBeenSent: 'Email has been sent.',
   priceIsOverExpectation: 'Price is over expectation.',
   priceIsUnderExpectation: 'Price is under expectation.',
+  dbInitialized: 'Database initialized',
 }
