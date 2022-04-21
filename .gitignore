@@ -3,3 +3,4 @@ node_modules
 /logs
 src/config.ts
 dist
+database/database.json

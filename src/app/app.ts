@@ -4,6 +4,7 @@ import {
   Log,
   priceIsOver,
   priceIsUnder,
+  Database,
 } from '@services'
 import { INFOS } from '@shared/strings'
 import { config } from 'config'
@@ -14,6 +15,7 @@ const { cryptoConfig, appConfig } = config
 const crypto = new CoinMarketCap.Cryptocurrency()
 const mailer = new Mailer()
 const { info } = new Log()
+const db = new Database()
 
 type AlertPrice = { under: number; over: number }
 type PriceCheckFn = (
