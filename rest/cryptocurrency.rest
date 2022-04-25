@@ -12,6 +12,6 @@ X-CMC_PRO_API_KEY: {{token}}
 
 ###
 
-GET {{URL}}/cryptocurrency/quotes/latest?slug=bitcoin
+GET {{URL}}/cryptocurrency/quotes/latest?slug=bitcoin,ethereum
 Content-Type: application/json
 X-CMC_PRO_API_KEY: {{token}}
