@@ -17,7 +17,7 @@ class Cryptocurrency extends API {
     const coinsEntries = Object.entries(data)
     const prices = coinsEntries.map(([_, { name, quote }]) => ({
       name,
-      price: quote.USD.price,
+      price: Number(quote.USD.price.toFixed(2)),
       convertedTo: 'USD',
     }))
 

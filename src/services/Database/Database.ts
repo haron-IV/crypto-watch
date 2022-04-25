@@ -8,10 +8,6 @@ class Database {
   private dbTemplateFilePath = `${process.cwd()}/database/database.template.json`
   private log = new Log()
 
-  constructor() {
-    this.init()
-  }
-
   private getDbTemplate = () =>
     JSON.parse(readFileSync(this.dbTemplateFilePath, 'utf8'))
 

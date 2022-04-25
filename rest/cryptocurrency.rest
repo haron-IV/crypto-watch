@@ -11,7 +11,13 @@ Content-Type: application/json
 X-CMC_PRO_API_KEY: {{token}}
 
 ###
-
+#https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyQuotesLatest
 GET {{URL}}/cryptocurrency/quotes/latest?slug=bitcoin,ethereum
+Content-Type: application/json
+X-CMC_PRO_API_KEY: {{token}}
+
+###
+#https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyListingsLatest
+GET {{URL}}/cryptocurrency/listings/latest
 Content-Type: application/json
 X-CMC_PRO_API_KEY: {{token}}

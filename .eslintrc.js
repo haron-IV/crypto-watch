@@ -47,5 +47,6 @@ module.exports = {
     curly: 0,
     'arrow-parens': 0,
     'object-curly-newline': 0,
+    'no-confusing-arrow': 0,
   },
 }

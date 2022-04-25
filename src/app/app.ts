@@ -15,7 +15,8 @@ const { cryptoConfig, appConfig } = config
 const crypto = new CoinMarketCap.Cryptocurrency()
 const mailer = new Mailer()
 const { info, error } = new Log()
-const db = new Database()
+const { init } = new Database()
+init()
 
 type AlertPrice = { under: number; over: number }
 type PriceCheckFn = (
@@ -53,9 +54,12 @@ const priceIsOverExpectation: PriceCheckFn = (
 }
 
 const checkPrices = async () => {
-  const cryptocurrenciesToCheck = cryptoConfig.map(
-    ({ cryptocurrencyName }) => cryptocurrencyName
-  )
+  const cryptocurrenciesToCheck = cryptoConfig
+    .map(({ cryptocurrencyName, active }) =>
+      active ? cryptocurrencyName : null
+    )
+    .filter(Boolean) as SupportedCryptocurrencies[]
+
   const prices = await crypto.getCryptoCurrenciesPrice(cryptocurrenciesToCheck)
   const pricesWithAlertInfo = prices.map((item) => ({
     ...item,
@@ -69,14 +73,13 @@ const checkPrices = async () => {
       error(ERRORS.noAlertPrice)
       return
     }
-
     const cryptocurrencyName = name as SupportedCryptocurrencies
 
     if (price < alertPrice?.under)
       priceIsUnderExpectation(cryptocurrencyName, alertPrice, convertedTo)
     else if (price > alertPrice?.over)
       priceIsOverExpectation(cryptocurrencyName, alertPrice, convertedTo)
-    else info(`${INFOS.priceChecked(cryptocurrencyName)}`)
+    else info(`${INFOS.priceChecked(cryptocurrencyName, price, convertedTo)}`)
   })
 }
 
