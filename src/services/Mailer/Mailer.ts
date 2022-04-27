@@ -1,3 +1,4 @@
+import { ReadStream } from 'fs'
 import { createTransport, SentMessageInfo, Transporter } from 'nodemailer'
 import { Options } from 'nodemailer/lib/mailer'
 
@@ -15,10 +16,10 @@ class Mailer {
     },
   })
 
-  sendMail = (text: string, subject: string) => {
+  sendMail = (html: string | ReadStream, subject: string) => {
     const mail: Options = {
       to: mailTarget,
-      text,
+      html,
       from: user,
       subject,
     }

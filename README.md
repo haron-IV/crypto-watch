@@ -9,7 +9,7 @@ Stack: node, typescript, nodemailer, dotenv, axios, ts-node
 - [ ] Send SMS / Call when alert is important
 - [ ] Wrap with Docker
 - [x] Make config.ts as template file (to not commit every chnage in config)
-- [ ] Create better mail template
+- [x] Create better mail template
 - [ ] Add timestamp for logs (for file - there is no filestamp in file)
 
 readme:

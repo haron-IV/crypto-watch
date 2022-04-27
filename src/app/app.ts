@@ -8,6 +8,7 @@ import {
 } from '@services'
 import { ERRORS, INFOS } from '@shared/strings'
 import { config } from 'config'
+import { createReadStream } from 'fs'
 import { SupportedCryptocurrencies } from './types'
 import { createInterval } from './utils'
 
@@ -31,7 +32,7 @@ const priceIsUnderExpectation: PriceCheckFn = (
   convertedTo
 ) => {
   const mail = priceIsUnder(cryptocurrencyName, alertPrice.under, convertedTo)
-  mailer.sendMail(mail.subject, mail.html)
+  mailer.sendMail(mail.html, mail.subject)
   info(
     `${INFOS.priceIsUnderExpectation(cryptocurrencyName)} ${
       INFOS.emailHasBeenSent
@@ -45,7 +46,7 @@ const priceIsOverExpectation: PriceCheckFn = (
   convertedTo
 ) => {
   const mail = priceIsOver(cryptocurrencyName, alertPrice.over, convertedTo)
-  mailer.sendMail(mail.subject, mail.html)
+  mailer.sendMail(mail.html, mail.subject)
   info(
     `${INFOS.priceIsOverExpectation(cryptocurrencyName)} ${
       INFOS.emailHasBeenSent
