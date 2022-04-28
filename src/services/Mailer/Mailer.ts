@@ -16,9 +16,14 @@ class Mailer {
     },
   })
 
-  sendMail = (html: string | ReadStream, subject: string) => {
+  sendMail = (
+    html: string | ReadStream,
+    subject: string,
+    attachments?: any[]
+  ) => {
     const mail: Options = {
       to: mailTarget,
+      attachments,
       html,
       from: user,
       subject,

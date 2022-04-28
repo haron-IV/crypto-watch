@@ -1,58 +1,43 @@
 import { SupportedCryptocurrencies } from 'app'
-import { createReadStream, ReadStream } from 'fs'
-import { template } from './templates/template'
+import { ReadStream } from 'fs'
+import { template } from '@root/static/mailTemplates/cryptoAlert/template'
 
 type TemplateFn = (
   cryptocurrencyName: SupportedCryptocurrencies,
   priceException: number,
   convertedTo: string
-) => { subject: string; html: ReadStream }
+) => {
+  subject: string
+  html: ReadStream | string
+  attachments: any[]
+}
 
-/*
-`
-    <article>
-      <header>
-        <h2>Price of ${cryptocurrencyName.toUpperCase()} is over ${priceException} USD!</h2>
-      </header>
-    </article>
-  `,
-*/
 const priceIsOver: TemplateFn = (
   cryptocurrencyName,
   priceException,
   convertedTo
 ) => {
-  const html = createReadStream(
-    `${__dirname.replace('/app', '')}/templates/template.html`
-  )
+  const { html, attachments } = template()
 
   return {
     subject: `Price of ${cryptocurrencyName.toUpperCase()} is over ${priceException} ${convertedTo}!`,
     text: '',
+    attachments,
     html,
   }
 }
 
-/*
-`
-    <article>
-      <header>
-        <h2>Price of ${cryptocurrencyName.toUpperCase()} is under ${priceException} USD!</h2>
-      </header>
-    </article>
-  `,
-*/
 const priceIsUnder: TemplateFn = (
   cryptocurrencyName,
   priceException,
   convertedTo
 ) => {
-  const html = createReadStream(
-    `${__dirname.replace('/app', '')}/templates/template.html`
-  )
+  const { html, attachments } = template()
+
   return {
     subject: `Price of ${cryptocurrencyName.toUpperCase()} is under ${priceException} ${convertedTo}!`,
     text: '',
+    attachments,
     html,
   }
 }

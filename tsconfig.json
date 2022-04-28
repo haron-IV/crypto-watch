@@ -9,6 +9,8 @@
     "baseUrl": "src",
     "strict": true,
     "paths": {
+      "@root/*": ["../*"],
+
       "@services/*": ["services/*"],
       "@services": ["services/index"],
 

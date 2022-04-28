@@ -32,7 +32,7 @@ const priceIsUnderExpectation: PriceCheckFn = (
   convertedTo
 ) => {
   const mail = priceIsUnder(cryptocurrencyName, alertPrice.under, convertedTo)
-  mailer.sendMail(mail.html, mail.subject)
+  mailer.sendMail(mail.html as string, mail.subject, mail.attachments)
   info(
     `${INFOS.priceIsUnderExpectation(cryptocurrencyName)} ${
       INFOS.emailHasBeenSent
@@ -46,7 +46,7 @@ const priceIsOverExpectation: PriceCheckFn = (
   convertedTo
 ) => {
   const mail = priceIsOver(cryptocurrencyName, alertPrice.over, convertedTo)
-  mailer.sendMail(mail.html, mail.subject)
+  mailer.sendMail(mail.html as string, mail.subject, mail.attachments)
   info(
     `${INFOS.priceIsOverExpectation(cryptocurrencyName)} ${
       INFOS.emailHasBeenSent
