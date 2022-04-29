@@ -14,5 +14,7 @@ export const strings = {
       convertedTo,
     }: CryptoAlertTemplateProps) =>
       `Price of ${cryptocurrencyName.toUpperCase()} is under ${priceException} ${convertedTo}!`,
+    subtitle:
+      "Price changed, don't wait to take your decision and take the profit",
   },
 }

@@ -3,7 +3,14 @@
 /* eslint-disable no-tabs */
 import { imageList, mapToAttachments } from './imageList'
 
-export const cryptoAlertTemplateBase = () => ({
+interface CryptoAlertTemplateBaseProps {
+  title: string
+  subTitle: string
+}
+export const cryptoAlertTemplateBase = ({
+  title,
+  subTitle,
+}: CryptoAlertTemplateBaseProps) => ({
   attachments: mapToAttachments(imageList),
   html: `
 	<html>
@@ -158,7 +165,7 @@ export const cryptoAlertTemplateBase = () => ({
 																		<div class="txtTinyMce-wrapper"
 																			style="font-size: 14px; mso-line-height-alt: 21px; color: #ffffff; line-height: 1.5; font-family: Varela Round, Trebuchet MS, Helvetica, sans-serif;">
 																			<p style="margin: 0; font-size: 14px; mso-line-height-alt: 33px;"><span
-																					style="font-size:22px;">Crypto Alert!</span></p>
+																					style="font-size:22px;">${title}</span></p>
 																		</div>
 																	</div>
 																</td>
@@ -171,8 +178,7 @@ export const cryptoAlertTemplateBase = () => ({
 																	<div style="font-family: sans-serif">
 																		<div class="txtTinyMce-wrapper"
 																			style="font-size: 14px; mso-line-height-alt: 21px; color: #807aa0; line-height: 1.5; font-family: Varela Round, Trebuchet MS, Helvetica, sans-serif;">
-																			<p style="margin: 0; font-size: 14px;">Some of your cryptocurrency alert was
-																				triggered. Check out the details below.</p>
+																			<p style="margin: 0; font-size: 14px;">${subTitle}</p>
 																		</div>
 																	</div>
 																</td>

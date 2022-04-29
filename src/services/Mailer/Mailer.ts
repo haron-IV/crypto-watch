@@ -1,3 +1,4 @@
+import { Logger } from '@services'
 import { ReadStream } from 'fs'
 import { createTransport, SentMessageInfo, Transporter } from 'nodemailer'
 import { Attachment, Options } from 'nodemailer/lib/mailer'
@@ -8,6 +9,7 @@ const mailTarget = process.env.MAILER_TARGET || ''
 
 type TransporterObj = Transporter<SentMessageInfo>
 class Mailer {
+  private log = new Logger()
   private transporter: TransporterObj = createTransport({
     service: 'Gmail',
     auth: { user, pass },
@@ -27,8 +29,8 @@ class Mailer {
     }
 
     this.transporter.sendMail(mail, err => {
-      if (err) console.error(err.message)
-      else console.log(`Mail has been sent to: ${mail.to}`)
+      if (err) this.log.error(err.message)
+      else this.log.info(`Mail has been sent to: ${mail.to}`)
     })
   }
 }

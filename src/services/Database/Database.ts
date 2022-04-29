@@ -1,12 +1,12 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs'
-import { Log } from '@services'
+import { Logger } from '@services'
 import { INFOS } from '@shared/strings'
 import { DBSchema } from '@shared/types'
 
 class Database {
   private dbFilePath = `${process.cwd()}/database/database.json`
   private dbTemplateFilePath = `${process.cwd()}/database/database.template.json`
-  private log = new Log()
+  private log = new Logger()
 
   private getDbTemplate = () =>
     JSON.parse(readFileSync(this.dbTemplateFilePath, 'utf8'))

@@ -2,7 +2,7 @@ import {
   priceIsOver,
   priceIsUnder,
 } from '@mailTemplates/cryptoAlert/cryptoAlertTemplates'
-import { CoinMarketCap, Mailer, Log, Database } from '@services'
+import { CoinMarketCap, Mailer, Logger, Database } from '@services'
 import { SupportedCryptocurrencies } from '@shared/enums'
 import { ERRORS, INFOS } from '@shared/strings'
 import { config } from 'config'
@@ -11,7 +11,7 @@ import { createInterval } from './utils'
 const { cryptoConfig, appConfig } = config
 const crypto = new CoinMarketCap.Cryptocurrency()
 const mailer = new Mailer()
-const { info, error } = new Log()
+const { info, error } = new Logger()
 const { init } = new Database()
 init()
 
@@ -66,10 +66,10 @@ const checkPrices = async () => {
     .filter(Boolean) as SupportedCryptocurrencies[]
 
   const prices = await crypto.getCryptoCurrenciesPrice(cryptocurrenciesToCheck)
-  const pricesWithAlertInfo = prices.map((item) => ({
+  const pricesWithAlertInfo = prices.map(item => ({
     ...item,
     alertPrice: cryptoConfig.find(
-      (cfg) => cfg.cryptocurrencyName === item.name.toLowerCase()
+      cfg => cfg.cryptocurrencyName === item.name.toLowerCase()
     )?.alertPrice,
   }))
 
