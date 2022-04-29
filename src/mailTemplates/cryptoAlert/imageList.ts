@@ -69,5 +69,6 @@ export const imageList = {
 }
 
 type ImageList = typeof imageList
-export const mapToAttachments = (imageList: ImageList) =>
+export type ImageListAttachments = ImageList[keyof ImageList][]
+export const mapToAttachments = (imageList: ImageList): ImageListAttachments =>
   Object.values(imageList)

@@ -1,6 +1,6 @@
 import { ReadStream } from 'fs'
 import { createTransport, SentMessageInfo, Transporter } from 'nodemailer'
-import { Options } from 'nodemailer/lib/mailer'
+import { Attachment, Options } from 'nodemailer/lib/mailer'
 
 const user = process.env.MAILER_USER || ''
 const pass = process.env.MAILER_PASSWORD || ''
@@ -10,16 +10,13 @@ type TransporterObj = Transporter<SentMessageInfo>
 class Mailer {
   private transporter: TransporterObj = createTransport({
     service: 'Gmail',
-    auth: {
-      user,
-      pass,
-    },
+    auth: { user, pass },
   })
 
-  sendMail = (
+  sendMail = <T extends Attachment[]>(
     html: string | ReadStream,
     subject: string,
-    attachments?: any[]
+    attachments?: T
   ) => {
     const mail: Options = {
       to: mailTarget,
@@ -29,7 +26,7 @@ class Mailer {
       subject,
     }
 
-    this.transporter.sendMail(mail, (err) => {
+    this.transporter.sendMail(mail, err => {
       if (err) console.error(err.message)
       else console.log(`Mail has been sent to: ${mail.to}`)
     })
