@@ -1,15 +1,11 @@
 import {
-  CoinMarketCap,
-  Mailer,
-  Log,
   priceIsOver,
   priceIsUnder,
-  Database,
-} from '@services'
+} from '@mailTemplates/cryptoAlert/cryptoAlertTemplates'
+import { CoinMarketCap, Mailer, Log, Database } from '@services'
+import { SupportedCryptocurrencies } from '@shared/enums'
 import { ERRORS, INFOS } from '@shared/strings'
 import { config } from 'config'
-import { createReadStream } from 'fs'
-import { SupportedCryptocurrencies } from './types'
 import { createInterval } from './utils'
 
 const { cryptoConfig, appConfig } = config
@@ -31,8 +27,12 @@ const priceIsUnderExpectation: PriceCheckFn = (
   alertPrice,
   convertedTo
 ) => {
-  const mail = priceIsUnder(cryptocurrencyName, alertPrice.under, convertedTo)
-  mailer.sendMail(mail.html as string, mail.subject, mail.attachments)
+  const mail = priceIsUnder({
+    cryptocurrencyName,
+    priceException: alertPrice.under,
+    convertedTo,
+  })
+  mailer.sendMail(mail.html, mail.subject, mail.attachments)
   info(
     `${INFOS.priceIsUnderExpectation(cryptocurrencyName)} ${
       INFOS.emailHasBeenSent
@@ -45,8 +45,12 @@ const priceIsOverExpectation: PriceCheckFn = (
   alertPrice,
   convertedTo
 ) => {
-  const mail = priceIsOver(cryptocurrencyName, alertPrice.over, convertedTo)
-  mailer.sendMail(mail.html as string, mail.subject, mail.attachments)
+  const mail = priceIsOver({
+    cryptocurrencyName,
+    priceException: alertPrice.over,
+    convertedTo,
+  })
+  mailer.sendMail(mail.html, mail.subject, mail.attachments)
   info(
     `${INFOS.priceIsOverExpectation(cryptocurrencyName)} ${
       INFOS.emailHasBeenSent
