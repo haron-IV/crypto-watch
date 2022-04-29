@@ -1,6 +1,6 @@
-import { SupportedCryptocurrencies } from 'app'
+import { cryptoAlertTemplateBase } from '@static/mailTemplates'
+import { SupportedCryptocurrencies } from '@shared'
 import { ReadStream } from 'fs'
-import { template } from '@root/static/mailTemplates/cryptoAlert/template'
 
 type TemplateFn = (
   cryptocurrencyName: SupportedCryptocurrencies,
@@ -17,7 +17,8 @@ const priceIsOver: TemplateFn = (
   priceException,
   convertedTo
 ) => {
-  const { html, attachments } = template()
+  // TODO: it should be replaced with proper function
+  const { html, attachments } = cryptoAlertTemplateBase()
 
   return {
     subject: `Price of ${cryptocurrencyName.toUpperCase()} is over ${priceException} ${convertedTo}!`,
@@ -32,7 +33,7 @@ const priceIsUnder: TemplateFn = (
   priceException,
   convertedTo
 ) => {
-  const { html, attachments } = template()
+  const { html, attachments } = cryptoAlertTemplateBase()
 
   return {
     subject: `Price of ${cryptocurrencyName.toUpperCase()} is under ${priceException} ${convertedTo}!`,

@@ -9,7 +9,7 @@
     "baseUrl": "src",
     "strict": true,
     "paths": {
-      "@root/*": ["../*"],
+      "@static/*": ["../static/*"],
 
       "@services/*": ["services/*"],
       "@services": ["services/index"],

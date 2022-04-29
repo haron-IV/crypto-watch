@@ -3,7 +3,7 @@
 /* eslint-disable no-tabs */
 import { imageList, mapToAttachments } from './imageList'
 
-export const template = () => ({
+export const cryptoAlertTemplateBase = () => ({
   attachments: mapToAttachments(imageList),
   html: `
 	<html>
