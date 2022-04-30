@@ -21,4 +21,5 @@ export interface CryptoAlertTemplateProps {
   cryptocurrencyName: SupportedCryptocurrencies
   priceException: number
   convertedTo: string
+  cryptocurrencyPrice: number
 }

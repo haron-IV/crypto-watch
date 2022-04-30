@@ -19,18 +19,21 @@ type AlertPrice = { under: number; over: number }
 type PriceCheckFn = (
   cryptocurrencyName: SupportedCryptocurrencies,
   alertPrice: AlertPrice,
-  convertedTo: string
+  convertedTo: string,
+  cryptocurrencyPrice: number
 ) => void
 
 const priceIsUnderExpectation: PriceCheckFn = (
   cryptocurrencyName,
   alertPrice,
-  convertedTo
+  convertedTo,
+  cryptocurrencyPrice
 ) => {
   const mail = priceIsUnder({
     cryptocurrencyName,
     priceException: alertPrice.under,
     convertedTo,
+    cryptocurrencyPrice,
   })
   mailer.sendMail(mail.html, mail.subject, mail.attachments)
   info(
@@ -43,12 +46,14 @@ const priceIsUnderExpectation: PriceCheckFn = (
 const priceIsOverExpectation: PriceCheckFn = (
   cryptocurrencyName,
   alertPrice,
-  convertedTo
+  convertedTo,
+  cryptocurrencyPrice
 ) => {
   const mail = priceIsOver({
     cryptocurrencyName,
     priceException: alertPrice.over,
     convertedTo,
+    cryptocurrencyPrice,
   })
   mailer.sendMail(mail.html, mail.subject, mail.attachments)
   info(
@@ -81,9 +86,14 @@ const checkPrices = async () => {
     const cryptocurrencyName = name as SupportedCryptocurrencies
 
     if (price < alertPrice?.under)
-      priceIsUnderExpectation(cryptocurrencyName, alertPrice, convertedTo)
+      priceIsUnderExpectation(
+        cryptocurrencyName,
+        alertPrice,
+        convertedTo,
+        price
+      )
     else if (price > alertPrice?.over)
-      priceIsOverExpectation(cryptocurrencyName, alertPrice, convertedTo)
+      priceIsOverExpectation(cryptocurrencyName, alertPrice, convertedTo, price)
     else info(`${INFOS.priceChecked(cryptocurrencyName, price, convertedTo)}`)
   })
 }
