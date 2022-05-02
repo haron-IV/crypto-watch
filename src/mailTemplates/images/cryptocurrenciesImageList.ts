@@ -163,9 +163,5 @@ export const imageList = {
 }
 
 export type IconsImageList = typeof imageList
-export type ImageListAttachments = IconsImageList[keyof IconsImageList][]
-export const mapToAttachments = (
-  imageList: IconsImageList
-): ImageListAttachments => Object.values(imageList)
 export const getIcon = (cryptocurrencyName: SupportedCryptocurrencies) =>
   imageList[cryptocurrencyName] as ImageListValue

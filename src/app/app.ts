@@ -83,7 +83,8 @@ const checkPrices = async () => {
       error(ERRORS.noAlertPrice)
       return
     }
-    const cryptocurrencyName = name as SupportedCryptocurrencies
+    const cryptocurrencyName =
+      name.toLocaleLowerCase() as SupportedCryptocurrencies
 
     if (price < alertPrice?.under)
       priceIsUnderExpectation(

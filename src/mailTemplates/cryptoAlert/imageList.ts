@@ -1,3 +1,5 @@
+import { ImageListValue } from '@shared/types'
+
 const imgSource = (imageName: string) => `${__dirname}/images/${imageName}`
 
 export const imageList = {
@@ -20,5 +22,8 @@ export const imageList = {
 
 type ImageList = typeof imageList
 export type ImageListAttachments = ImageList[keyof ImageList][]
-export const mapToAttachments = (imageList: ImageList): ImageListAttachments =>
-  Object.values(imageList)
+export const mapToAttachments = (
+  imageList: ImageList,
+  icon?: ImageListValue
+): ImageListValue[] =>
+  icon ? [...Object.values(imageList), icon] : Object.values(imageList)
