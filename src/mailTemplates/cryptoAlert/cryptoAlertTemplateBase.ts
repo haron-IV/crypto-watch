@@ -15,8 +15,6 @@ interface CryptoAlertTemplateBaseProps {
 
 const currentYear = new Date().getFullYear()
 
-// TODO: create cryptoccurenncy icon image list and paste it here
-
 export const cryptoAlertTemplateBase = ({
   title,
   subTitle,

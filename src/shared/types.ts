@@ -23,3 +23,9 @@ export interface CryptoAlertTemplateProps {
   convertedTo: string
   cryptocurrencyPrice: number
 }
+
+export interface ImageListValue {
+  filename: string
+  path: string
+  cid: string
+}
