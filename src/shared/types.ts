@@ -1,4 +1,5 @@
 import { Config } from 'config'
+import { SupportedCryptocurrencies } from './enums'
 
 type DatabaseDataItem = {
   id: string
@@ -14,4 +15,17 @@ type DatabaseDataItem = {
 export interface DBSchema {
   created: string
   data: DatabaseDataItem[]
+}
+
+export interface CryptoAlertTemplateProps {
+  cryptocurrencyName: SupportedCryptocurrencies
+  priceException: number
+  convertedTo: string
+  cryptocurrencyPrice: number
+}
+
+export interface ImageListValue {
+  filename: string
+  path: string
+  cid: string
 }

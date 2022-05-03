@@ -17,6 +17,9 @@
 
       "@app/*": ["app/*"],
       "@app": ["app/index"],
+
+      "@mailTemplates/*": ["mailTemplates/*"],
+      "@mailTemplates": ["mailTemplates/index"],
     }
   },
   "lib": ["es2016", "es2015", "es7"],
