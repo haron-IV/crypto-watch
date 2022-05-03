@@ -8,6 +8,7 @@ import { ERRORS, INFOS } from '@shared/strings'
 import { config } from 'config'
 import { createInterval } from './utils'
 
+// TODO: refactorize this file
 const { cryptoConfig, appConfig } = config
 const crypto = new CoinMarketCap.Cryptocurrency()
 const mailer = new Mailer()

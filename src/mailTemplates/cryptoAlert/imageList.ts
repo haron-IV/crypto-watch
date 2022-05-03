@@ -21,7 +21,6 @@ export const imageList = {
 }
 
 type ImageList = typeof imageList
-export type ImageListAttachments = ImageList[keyof ImageList][]
 export const mapToAttachments = (
   imageList: ImageList,
   icon?: ImageListValue

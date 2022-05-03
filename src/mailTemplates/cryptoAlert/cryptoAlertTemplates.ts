@@ -19,10 +19,11 @@ export const priceIsOver = (templateProps: CryptoAlertTemplateProps) => {
     price: templateProps.cryptocurrencyPrice,
     ...templateBaseProps,
   })
+  const subject = strings.cryptoAlert.priceIsOverSubject(templateProps)
 
   return {
-    subject: strings.cryptoAlert.priceIsOverSubject(templateProps),
-    text: strings.cryptoAlert.priceIsOverSubject(templateProps),
+    subject,
+    text: subject,
     attachments,
     html,
   }
@@ -35,10 +36,11 @@ export const priceIsUnder = (templateProps: CryptoAlertTemplateProps) => {
     price: templateProps.cryptocurrencyPrice,
     ...templateBaseProps,
   })
+  const subject = strings.cryptoAlert.priceIsUnderSubject(templateProps)
 
   return {
-    subject: strings.cryptoAlert.priceIsUnderSubject(templateProps),
-    text: strings.cryptoAlert.priceIsUnderSubject(templateProps),
+    subject,
+    text: subject,
     attachments,
     html,
   }

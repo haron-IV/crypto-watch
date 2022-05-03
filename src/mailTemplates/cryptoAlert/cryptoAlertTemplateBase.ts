@@ -1,5 +1,7 @@
+/* eslint-disable indent */
 import { getIcon } from '@mailTemplates/images/cryptocurrenciesImageList'
 import { SupportedCryptocurrencies } from '@shared/enums'
+import { getCurrentYear } from '@shared/utils'
 import { imageList, mapToAttachments } from './imageList'
 
 interface CryptoAlertTemplateBaseProps {
@@ -14,8 +16,6 @@ interface CryptoAlertTemplateBaseProps {
   cryptocurrencyName: SupportedCryptocurrencies
   price: number
 }
-
-const currentYear = new Date().getFullYear()
 
 export const cryptoAlertTemplateBase = ({
   title,
@@ -1099,7 +1099,7 @@ export const cryptoAlertTemplateBase = ({
                                               "
                                             >
                                               <span style="font-size: 16px"
-                                                >${currentYear} © All rights reserved</span
+                                                >${getCurrentYear()} © All rights reserved</span
                                               >
                                             </p>
                                           </div>
@@ -1240,7 +1240,9 @@ export const cryptoAlertTemplateBase = ({
                                                         alt="Designed with BEE"
                                                         class="icon"
                                                         height="32"
-                                                        src="cid:${imageList.bee.cid}"
+                                                        src="cid:${
+                                                          imageList.bee.cid
+                                                        }"
                                                         style="
                                                           display: block;
                                                           height: auto;
