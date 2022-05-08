@@ -4,11 +4,11 @@ import { INFOS } from '@shared/strings'
 import { DBSchema } from '@shared/types'
 
 class Database {
-  private dbFilePath = `${process.cwd()}/database/database.json`
+  dbFilePath = `${process.cwd()}/database/database.json`
   private dbTemplateFilePath = `${process.cwd()}/database/database.template.json`
   private log = new Logger()
 
-  private getDbTemplate = () =>
+  getDbTemplate = () =>
     JSON.parse(readFileSync(this.dbTemplateFilePath, 'utf8'))
 
   private dbExists = () => {
@@ -30,7 +30,7 @@ class Database {
   }
 
   getDb = (): DBSchema => JSON.parse(readFileSync(this.dbFilePath, 'utf8'))
-  saveDv = (db: DBSchema) => writeFileSync(this.dbFilePath, JSON.stringify(db))
+  saveDb = (db: DBSchema) => writeFileSync(this.dbFilePath, JSON.stringify(db))
 }
 
 export default Database
