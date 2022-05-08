@@ -5,3 +5,5 @@ src/config.ts
 dist
 database/database.json
 .DS_Store
+crypto-alert.tar
+crypto-alert.tar.gz
