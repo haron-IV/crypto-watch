@@ -48,3 +48,9 @@ docker load -i ./images/crypto-alert.tar | grep -o "sha256:.*"
 #Tag the image
 docker tag <imageID> crypto-alert:latest
 
+#run image
+docker run <tagName>
+
+#if you want to edit something (fe. configs) you can get into container
+#https://jhooq.com/docker-edit-file-inside-container/
+docker exec -u 0 -it <containerId> /bin/bash
