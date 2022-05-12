@@ -1,4 +1,5 @@
 #pass argiment to cooperate with your ssh example: sh update.sh docker@your_server_ip
+# Build in this file is configured for apple M1
 SSH=$1
 project_name="crypto-alert"
 project_root=$(pwd)
@@ -39,10 +40,9 @@ ssh ${SSH} "rm ~/images/${project_name}.tar.gz"
 printSuccess "Image uncompressed successfully"
 
 printStep "Step 6: Load docker image"
-image_id=$(ssh ${SSH} docker load -i ~/images/${project_name}.tar)
-printSuccess "Image loaded successfully. image ID: ${image_id}"
+image_id=$(ssh ${SSH} "docker load -i ~/images/${project_name}.tar")
+printSuccess "Image loaded successfully."
 
-#TODO: it doesn't work
 printStep "Step 7: tagging the image"
-ssh ${SSH} "docker tag ${image_id} ${project_name}:latest"
+ssh ${SSH} "docker tag ${project_name}:latest ${project_name}:latest"
 printSuccess "Image tagged successfully. | tag name: ${project_name}:latest"

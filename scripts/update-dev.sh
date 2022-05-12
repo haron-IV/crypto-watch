@@ -1,3 +1,5 @@
+#TODO: to remove after implementing docker version
+
 echo 'Stopping app processes...'
 yarn stop-vps-debug
 yarn stop-vps

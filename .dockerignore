@@ -7,3 +7,13 @@ docker-compose*
 README.md
 LICENSE
 .vscode
+.prettierrc
+*.tar
+*.tar.gz
+.eslintrc.js
+.eslintignore
+/rest
+/scripts
+/logs/*
+/database/database.json
+.env

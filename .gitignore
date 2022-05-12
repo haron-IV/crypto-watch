@@ -7,3 +7,5 @@ database/database.json
 .DS_Store
 crypto-alert.tar
 crypto-alert.tar.gz
+.env-prod
+.docker_temp_*
