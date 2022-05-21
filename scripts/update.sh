@@ -1,6 +1,7 @@
 #pass argiment to cooperate with your ssh example: sh update.sh docker@your_server_ip
 # Build in this file is configured for apple M1
 SSH=$1
+
 project_name="crypto-alert"
 project_root=$(pwd)
 green="\033[0;32m"
@@ -46,3 +47,8 @@ printSuccess "Image loaded successfully."
 printStep "Step 7: tagging the image"
 ssh ${SSH} "docker tag ${project_name}:latest ${project_name}:latest"
 printSuccess "Image tagged successfully. | tag name: ${project_name}:latest"
+
+printStep "Step 8: Do not forget to copy your database from old container!"
+echo "You can use docker cp command like this:"
+echo "docker cp container_id:/src/database/database.json ./database.json"
+echo "Then copy your database to new container"
