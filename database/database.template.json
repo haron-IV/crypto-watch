@@ -1,4 +1,12 @@
 {
   "created": "",
-  "data": []
+  "statistics": {
+    "signedAPIKeys": 0,
+    "mailsSent": 0,
+    "lastSignedAPIKey": {
+      "date": "",
+      "key": ""
+    }
+  },
+  "apiKeys": []
 }
