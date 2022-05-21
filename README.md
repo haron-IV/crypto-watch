@@ -7,7 +7,7 @@ Stack: node, typescript, nodemailer, dotenv, axios, ts-node
 - [ ] Save alerts in .json file
 - [x] Multiple cryptocurrencies alert
 - [ ] Send SMS / Call when alert is important
-- [ ] Wrap with Docker
+- [x] Wrap with Docker
 - [x] Make config.ts as template file (to not commit every chnage in config)
 - [x] Create better mail template
 - [ ] Add timestamp for logs (for file - there is no filestamp in file)
